@@ -161,19 +161,10 @@
 <p>上面代码可以简化下，我定义了变量<code>a</code>是为了好理解，其实<code>a</code>就是<code>x</code>，变量<code>b</code>也可以去掉。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public boolean isPalindrome(int x) &#123;</span><br><span class="line">    // 如果是负数，或者是能够被10整除但是不是0的数，都返回false</span><br><span class="line">    if (x &lt; 0 || (x % 10 == 0 &amp;&amp; x != 0)) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    // 反转后的数字</span><br><span class="line">    int c = 0;</span><br><span class="line">    while (x &gt; c) &#123;</span><br><span class="line">        c = c * 10 + x % 10;</span><br><span class="line">        x /= 10;</span><br><span class="line">    &#125;</span><br><span class="line">    return x == c || x == c / 10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"clientID":"Ov23liaKNtpnz2yAmtZx","clientSecret":"5a40d14ddd3eafd789bab9c6e4cffc63eb4ce67b","repo":"shizhenchao/shizhenchao.github.io","owner":"shizhenchao","admin":["GitHub repo owner and collaborators, only these guys can initialize github issues"],"distractionFreeMode":false};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.shizhenchao.com/2024/06/24/9-%E5%9B%9E%E6%96%87%E6%95%B0/" data-id="clxsi65s20007z8ufgvf9hzy3" data-title="9.回文数" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://www.shizhenchao.com/2024/06/24/9-%E5%9B%9E%E6%96%87%E6%95%B0/" data-id="clxsikm0f0007souffuwe0npd" data-title="9.回文数" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
