@@ -6,18 +6,18 @@
   
   <title>时振超</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="14.最长公共前缀题目描述编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 &quot;&quot;。 示例 1： 12输入：strs &#x3D; [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出：&quot;fl&quot;  示例 2： 123输入：strs &#x3D; [&quot;dog&quot;,&amp;qu">
+  <meta name="description" content="14.最长公共前缀题目描述编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 &quot;&quot;。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时振超">
 <meta property="og:url" content="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/index.html">
 <meta property="og:site_name" content="时振超">
-<meta property="og:description" content="14.最长公共前缀题目描述编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 &quot;&quot;。 示例 1： 12输入：strs &#x3D; [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出：&quot;fl&quot;  示例 2： 123输入：strs &#x3D; [&quot;dog&quot;,&amp;qu">
+<meta property="og:description" content="14.最长公共前缀题目描述编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 &quot;&quot;。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202407092120255.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202407092128039.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202407092141260.png">
 <meta property="article:published_time" content="2024-07-09T13:14:26.000Z">
-<meta property="article:modified_time" content="2024-07-12T04:48:53.422Z">
+<meta property="article:modified_time" content="2024-07-12T05:27:24.668Z">
 <meta property="article:author" content="时振超">
 <meta property="article:tag" content="最长公共前缀">
 <meta name="twitter:card" content="summary">
@@ -98,6 +98,8 @@
       
         <h1 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="14.最长公共前缀"></a>14.最长公共前缀</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
+<span id="more"></span>
+
 <p><strong>示例 1：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出：&quot;fl&quot;</span><br></pre></td></tr></table></figure>
 
@@ -110,8 +112,6 @@
 <li><code>0 &lt;= strs[i].length &lt;= 200</code></li>
 <li><code>strs[i]</code> 仅由小写英文字母组成</li>
 </ul>
-<span id="more"></span>
-
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>我们可以每两个进行比较，得到这两个的最长公共前缀后，再跟后面的字符串进行比较，以此类推，如下图所示：</p>
 <p><img src="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202407092120255.png"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">longestCommonPrefix</span><span class="params">(String[] strs)</span> &#123;</span><br><span class="line">        <span class="comment">// 题目说明strs的长度一定是&gt;=1的。</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; strs.length; i++) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">min</span> <span class="operator">=</span> longestCommonPrefix(s1, strs[i]);</span><br><span class="line">            s1 = s1.length() &gt; min.length() ? min : s1;</span><br><span class="line">            <span class="keyword">if</span> (s1 == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String <span class="title function_">longestCommonPrefix</span><span class="params">(String s1, String s2)</span> &#123;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Math.min(s1.length(), s2.length()); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s1.charAt(i) != s2.charAt(i)) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            sb.append(s1.charAt(i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -140,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" data-id="clyi8154l00044ouf0u9g9xf0" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" data-id="clyi9bhid0001t0ufdavuh4be" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
