@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="article">
 <meta property="og:title" content="9.回文数">
-<meta property="og:url" content="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/9-%E5%9B%9E%E6%96%87%E6%95%B0/index.html">
+<meta property="og:url" content="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/9-%E5%9B%9E%E6%96%87%E6%95%B0/index.html">
 <meta property="og:site_name" content="时振超">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202406241117620.png">
@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202406241119520.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202406241120451.png">
 <meta property="article:published_time" content="2024-06-24T03:16:28.000Z">
-<meta property="article:modified_time" content="2024-07-10T04:08:59.553Z">
+<meta property="article:modified_time" content="2024-07-12T04:43:04.206Z">
 <meta property="article:author" content="时振超">
 <meta property="article:tag" content="回文数">
 <meta name="twitter:card" content="summary">
@@ -83,12 +83,12 @@
       <div class="outer">
         <section id="main"><article id="post-9-回文数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/9-%E5%9B%9E%E6%96%87%E6%95%B0/" class="article-date">
+    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/9-%E5%9B%9E%E6%96%87%E6%95%B0/" class="article-date">
   <time class="dt-published" datetime="2024-06-24T03:16:28.000Z" itemprop="datePublished">2024-06-24</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>►<a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/">leetcode</a>
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>►<a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/">力扣</a>
   </div>
 
   </div>
@@ -110,10 +110,7 @@
         <p><img src="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202406241117620.png" alt="9.回文数"></p>
 <span id="more"></span>
 
-<blockquote>
-<p>9.回文数</p>
-</blockquote>
-<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9.回文数"></a>9.回文数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 <p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
 <ul>
 <li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
@@ -132,13 +129,13 @@
 <li><code>-231 &lt;= x &lt;= 231 - 1</code></li>
 </ul>
 <p><strong>进阶：</strong> 你能不将整数转为字符串来解决这个问题吗？</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>通过题目描述可以得到如下基本信息：</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>通过题目描述可以得到如下基本信息：</p>
 <ol start="0">
 <li>复数肯定不是回文数</li>
 <li>能被10整除的数肯定不是回文数（0除外）。</li>
 <li>其他的数就考虑反转，对比老数和反转后的数是否相等即可。</li>
 </ol>
-<h2 id="反转数字"><a href="#反转数字" class="headerlink" title="反转数字"></a>反转数字</h2><p>怎么反转是个关键，比如12321这个数，如何反转呢？就需要除法运算符<code>/</code>和余数运算符<code>%</code>，看下图下的推理图：</p>
+<h3 id="反转数字"><a href="#反转数字" class="headerlink" title="反转数字"></a>反转数字</h3><p>怎么反转是个关键，比如12321这个数，如何反转呢？就需要除法运算符<code>/</code>和余数运算符<code>%</code>，看下图下的推理图：</p>
 <p><img src="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202406241118508.png" alt="回文数推理"></p>
 <p>根据上图我们可以得出结论：</p>
 <ol start="0">
@@ -149,7 +146,7 @@
 
 <p>提交下</p>
 <p><img src="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202406241118929.png" alt="提交结果"></p>
-<h2 id="反转数字的一半"><a href="#反转数字的一半" class="headerlink" title="反转数字的一半"></a>反转数字的一半</h2><p>上面我们是将整个数字反转，其实不必这样，只需要反转一半就好，这时候值需要对比原数字剩余的部分和反转的数字的关系即可，这就要考虑下数字长度是奇数和偶数有区别吗？</p>
+<h3 id="反转数字的一半"><a href="#反转数字的一半" class="headerlink" title="反转数字的一半"></a>反转数字的一半</h3><p>上面我们是将整个数字反转，其实不必这样，只需要反转一半就好，这时候值需要对比原数字剩余的部分和反转的数字的关系即可，这就要考虑下数字长度是奇数和偶数有区别吗？</p>
 <p><strong>偶数情况：<code>1221</code></strong></p>
 <p><img src="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202406241119836.png" alt="偶数情况"></p>
 <p>其实第三次和第四次是非必须的，因为在第二次的时候已经反转到一半了。</p>
@@ -176,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/9-%E5%9B%9E%E6%96%87%E6%95%B0/" data-id="clyi7lnfd000j7cufhtxm8jqq" data-title="9.回文数" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/9-%E5%9B%9E%E6%96%87%E6%95%B0/" data-id="clyi7s6n4000jiguf6tj7gr9c" data-title="9.回文数" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -188,7 +185,7 @@
     
 <nav id="article-nav">
   
-    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/66-%E5%8A%A0%E4%B8%80/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/66-%E5%8A%A0%E4%B8%80/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
@@ -198,7 +195,7 @@
     </a>
   
   
-    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
       <div class="article-nav-title">1.两数之和</div>
     </a>
@@ -217,7 +214,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/">leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/">力扣</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/">力扣</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -267,15 +264,15 @@
           </li>
         
           <li>
-            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">26.删除有序数组中的重复项</a>
+            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">26.删除有序数组中的重复项</a>
           </li>
         
           <li>
-            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">21.合并两个有序链表</a>
+            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">21.合并两个有序链表</a>
           </li>
         
           <li>
-            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/leetcode/20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">20.有效的括号</a>
+            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">20.有效的括号</a>
           </li>
         
       </ul>
