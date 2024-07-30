@@ -4,22 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>Queue接口说明 | 时振超</title>
+  <title>110.平衡二叉树 | 时振超</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Queue是Java SDK的java.util包提供的一个队列接口，主要提供了六个方法。      		 		var gitalkConfig &#x3D; {&quot;clientID&quot;:&quot;Ov23liaKNtpnz2yAmtZx&quot;,&quot;clientSecret&quot;:&quot;5a40d14ddd3eafd789bab9c6e4cffc63eb4ce67b&quot;,&quot;repo&quot;:&quot;shizhenchao.github.io&quot;,&quot;">
+  <meta name="description" content="题目描述给定一个二叉树，判断它是否是 平衡二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Queue接口说明">
-<meta property="og:url" content="http://www.shizhenchao.com/java/queue%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E/index.html">
+<meta property="og:title" content="110.平衡二叉树">
+<meta property="og:url" content="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/110-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="时振超">
-<meta property="og:description" content="Queue是Java SDK的java.util包提供的一个队列接口，主要提供了六个方法。      		 		var gitalkConfig &#x3D; {&quot;clientID&quot;:&quot;Ov23liaKNtpnz2yAmtZx&quot;,&quot;clientSecret&quot;:&quot;5a40d14ddd3eafd789bab9c6e4cffc63eb4ce67b&quot;,&quot;repo&quot;:&quot;shizhenchao.github.io&quot;,&quot;">
+<meta property="og:description" content="题目描述给定一个二叉树，判断它是否是 平衡二叉树">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202407222205715.png">
-<meta property="article:published_time" content="2024-07-22T14:03:39.000Z">
-<meta property="article:modified_time" content="2024-07-30T01:30:52.238Z">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2020/10/06/balance_1.jpg">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2020/10/06/balance_2.jpg">
+<meta property="article:published_time" content="2024-07-30T01:46:58.000Z">
+<meta property="article:modified_time" content="2024-07-30T02:38:27.728Z">
 <meta property="article:author" content="时振超">
-<meta property="article:tag" content="Queue">
+<meta property="article:tag" content="110.平衡二叉树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202407222205715.png">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2020/10/06/balance_1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="时振超" type="application/atom+xml">
   
@@ -78,14 +79,14 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-queue接口说明" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-110-平衡二叉树" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/java/queue%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E/" class="article-date">
-  <time class="dt-published" datetime="2024-07-22T14:03:39.000Z" itemprop="datePublished">2024-07-22</time>
+    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/110-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="article-date">
+  <time class="dt-published" datetime="2024-07-30T01:46:58.000Z" itemprop="datePublished">2024-07-30</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>►<a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/">力扣</a>
   </div>
 
   </div>
@@ -96,7 +97,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Queue接口说明
+      110.平衡二叉树
     </h1>
   
 
@@ -104,9 +105,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><code>Queue</code>是Java SDK的<code>java.util</code>包提供的一个队列接口，主要提供了六个方法。</p>
-<p><img src="https://raw.githubusercontent.com/shizhenchao/imagebed/main/202407222205715.png" alt="Queue"></p>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定一个二叉树，判断它是否是 平衡二叉树</p>
+<span id="more"></span>
 
+
+
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/06/balance_1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [3,9,20,null,null,15,7]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/06/balance_2.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2,2,3,3,null,null,4,4]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = []</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>树中的节点数在范围 <code>[0, 5000]</code> 内</li>
+<li><code>-104 &lt;= Node.val &lt;= 104</code></li>
+</ul>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1>
 <div id="gitalk-container"></div>
 <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
@@ -119,11 +139,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.shizhenchao.com/java/queue%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E/" data-id="clz7ta22l001siwuf79bv0ns6" data-title="Queue接口说明" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://www.shizhenchao.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/110-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" data-id="clz7ta21s0006iwufgotf1ddo" data-title="110.平衡二叉树" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/" rel="tag">Queue</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/110-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">110.平衡二叉树</a></li></ul>
 
     </footer>
   </div>
@@ -131,19 +151,10 @@
     
 <nav id="article-nav">
   
-    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/104-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          104.二叉树的最大深度
-        
-      </div>
-    </a>
   
-  
-    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%9B%E6%89%A3/108-%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">101.对称二叉树</div>
+      <div class="article-nav-title">108.将有序数组转换为二叉搜索树</div>
     </a>
   
 </nav>
