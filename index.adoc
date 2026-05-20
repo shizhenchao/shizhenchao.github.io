@@ -21,7 +21,7 @@
 :table-frame: all
 :admonition-icon: true
 
-[quote, 荀子]
+[quote, 陆游]
 ____
 纸上得来终觉浅，绝知此事要躬行。
 ____
