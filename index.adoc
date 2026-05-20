@@ -1,4 +1,25 @@
-== 开篇寄语
+= Gold
+:doctype: blog
+:docinfo: shared
+:author: zhenchao.shi
+:email: zhenchao.shi@163.com
+:revnumber: 1.0
+:revdate: 2026-05-20
+// :revremark: 
+:title: 技术学习随笔博客
+:subtitle: 学无先后，达者为师
+:keywords: 编程,后端,技术笔记,学习心得
+:description: 专注技术沉淀，记录编程实战与成长之路
+:encoding: UTF-8
+:lang: zh-CN
+:toc: left
+:toc-title: 目录
+// :toclevels: 3
+:sectnums: true
+:source-highlighter: highlight.js
+:icons: font
+:table-frame: all
+:admonition-icon: true
 
 [quote, 荀子]
 ____
@@ -15,3 +36,19 @@ ____
 
 愿同路人携手同行，以代码为舟，以学识为帆，
 共赴技术山海，岁岁成长。
+
+== Java 基础
+== Java 面向对象
+== Java 集合框架
+== Java 多线程与并发
+== Java IO 与 NIO
+== Java 虚拟机（JVM）
+== Java 设计模式
+== Java 算法与数据结构
+== Java 面试题解析
+== Java 项目实战
+== Spring 核心原理
+== Spring Boot 开发
+== MyBatis 与持久层
+== 微服务基础
+== 代码规范与最佳实践
