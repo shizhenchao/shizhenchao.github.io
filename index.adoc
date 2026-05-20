@@ -6,7 +6,7 @@
 :revnumber: 1.0
 :revdate: 2026-05-20
 // :revremark: 
-:title: 技术学习随笔博客
+:title: GOLD
 :subtitle: 学无先后，达者为师
 :keywords: 编程,后端,技术笔记,学习心得
 :description: 专注技术沉淀，记录编程实战与成长之路
