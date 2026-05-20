@@ -23,19 +23,9 @@
 
 [quote, 荀子]
 ____
-学无先后，达者为师。
+纸上得来终觉浅，绝知此事要躬行。
 ____
 
-深耕技术之路，不分入行早晚，不问资历深浅。
-凡有所悟、有所得，皆可互通切磋；
-遇良师则虚心求教，有新知便落笔记录。
-
-本博客以实战为骨、思考为魂，
-沉淀编程心得、架构思路、踩坑经验与学习随笔，
-不求尽善尽美，但求步步精进。
-
-愿同路人携手同行，以代码为舟，以学识为帆，
-共赴技术山海，岁岁成长。
 
 == Java 基础
 == Java 面向对象
@@ -44,6 +34,96 @@ ____
 == Java IO 与 NIO
 == Java 虚拟机（JVM）
 == Java 设计模式
+=== 什么是单例模式
+单例模式确保一个类在整个应用中只存在一个实例，避免重复创建对象，节约资源并保证行为一致性。
+
+=== 核心特点
+* 构造方法私有（private）
+* 自行创建实例
+* 提供全局访问方法
+* 线程安全
+
+=== 适用场景
+* 配置信息类
+* 数据库连接池
+* 线程池
+* 日志工具类
+* Spring Bean 默认作用域
+
+=== 饿汉式
+[source,java]
+----
+public class Singleton {
+    private static final Singleton INSTANCE = new Singleton();
+    private Singleton() {}
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+}
+----
+
+=== 懒汉式（线程不安全）
+[source,java]
+----
+public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+----
+
+=== 懒汉式（线程安全）
+[source,java]
+----
+public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+----
+
+=== 双重检查锁 DCL
+[source,java]
+----
+public class Singleton {
+    private static volatile Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+----
+
+=== 静态内部类单例
+[source,java]
+----
+public class Singleton {
+    private Singleton() {}
+    private static class Holder {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+    public static Singleton getInstance() {
+        return Holder.INSTANCE;
+    }
+}
+----
 == Java 算法与数据结构
 == Java 面试题解析
 == Java 项目实战

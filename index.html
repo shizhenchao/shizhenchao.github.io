@@ -456,7 +456,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#java-多线程与并发">4. Java 多线程与并发</a></li>
 <li><a href="#java-io-与-nio">5. Java IO 与 NIO</a></li>
 <li><a href="#java-虚拟机jvm">6. Java 虚拟机（JVM）</a></li>
-<li><a href="#java-设计模式">7. Java 设计模式</a></li>
+<li><a href="#java-设计模式">7. Java 设计模式</a>
+<ul class="sectlevel2">
+<li><a href="#什么是单例模式">7.1. 什么是单例模式</a></li>
+<li><a href="#核心特点">7.2. 核心特点</a></li>
+<li><a href="#适用场景">7.3. 适用场景</a></li>
+<li><a href="#饿汉式">7.4. 饿汉式</a></li>
+<li><a href="#懒汉式线程不安全">7.5. 懒汉式（线程不安全）</a></li>
+<li><a href="#懒汉式线程安全">7.6. 懒汉式（线程安全）</a></li>
+<li><a href="#双重检查锁-dcl">7.7. 双重检查锁 DCL</a></li>
+<li><a href="#静态内部类单例">7.8. 静态内部类单例</a></li>
+</ul>
+</li>
 <li><a href="#java-算法与数据结构">8. Java 算法与数据结构</a></li>
 <li><a href="#java-面试题解析">9. Java 面试题解析</a></li>
 <li><a href="#java-项目实战">10. Java 项目实战</a></li>
@@ -474,26 +485,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p>学无先后，达者为师。</p>
+<p>纸上得来终觉浅，绝知此事要躬行。</p>
 </div>
 </blockquote>
 <div class="attribution">
 &#8212; 荀子
 </div>
-</div>
-<div class="paragraph">
-<p>深耕技术之路，不分入行早晚，不问资历深浅。
-凡有所悟、有所得，皆可互通切磋；
-遇良师则虚心求教，有新知便落笔记录。</p>
-</div>
-<div class="paragraph">
-<p>本博客以实战为骨、思考为魂，
-沉淀编程心得、架构思路、踩坑经验与学习随笔，
-不求尽善尽美，但求步步精进。</p>
-</div>
-<div class="paragraph">
-<p>愿同路人携手同行，以代码为舟，以学识为帆，
-共赴技术山海，岁岁成长。</p>
 </div>
 </div>
 </div>
@@ -536,7 +533,138 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="java-设计模式"><a class="anchor" href="#java-设计模式"></a>7. Java 设计模式</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="什么是单例模式"><a class="anchor" href="#什么是单例模式"></a>7.1. 什么是单例模式</h3>
+<div class="paragraph">
+<p>单例模式确保一个类在整个应用中只存在一个实例，避免重复创建对象，节约资源并保证行为一致性。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="核心特点"><a class="anchor" href="#核心特点"></a>7.2. 核心特点</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>构造方法私有（private）</p>
+</li>
+<li>
+<p>自行创建实例</p>
+</li>
+<li>
+<p>提供全局访问方法</p>
+</li>
+<li>
+<p>线程安全</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="适用场景"><a class="anchor" href="#适用场景"></a>7.3. 适用场景</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>配置信息类</p>
+</li>
+<li>
+<p>数据库连接池</p>
+</li>
+<li>
+<p>线程池</p>
+</li>
+<li>
+<p>日志工具类</p>
+</li>
+<li>
+<p>Spring Bean 默认作用域</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="饿汉式"><a class="anchor" href="#饿汉式"></a>7.4. 饿汉式</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Singleton {
+    private static final Singleton INSTANCE = new Singleton();
+    private Singleton() {}
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="懒汉式线程不安全"><a class="anchor" href="#懒汉式线程不安全"></a>7.5. 懒汉式（线程不安全）</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="懒汉式线程安全"><a class="anchor" href="#懒汉式线程安全"></a>7.6. 懒汉式（线程安全）</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="双重检查锁-dcl"><a class="anchor" href="#双重检查锁-dcl"></a>7.7. 双重检查锁 DCL</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Singleton {
+    private static volatile Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="静态内部类单例"><a class="anchor" href="#静态内部类单例"></a>7.8. 静态内部类单例</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Singleton {
+    private Singleton() {}
+    private static class Holder {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+    public static Singleton getInstance() {
+        return Holder.INSTANCE;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -591,7 +719,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2026-05-20 22:06:26 +0800
+Last updated 2026-05-20 22:15:27 +0800
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
